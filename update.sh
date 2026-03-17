@@ -30,6 +30,6 @@ cd "$REPO_DIR"
 
 git add .
 git commit -m "update: configs $(date)" || echo "Nada para commit"
-git push
+git push origin main
 
 echo "✔ Atualização concluída!"
