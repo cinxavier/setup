@@ -1,0 +1,16 @@
+{
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "Monokai Dimmed",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "window.commandCenter": false,
+    "chat.commandCenter.enabled": false,
+    "editor.tabSize": 2,
+    "workbench.tree.indent": 16,
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "explorer.confirmDelete": false
+}
