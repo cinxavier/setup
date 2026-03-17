@@ -38,4 +38,5 @@ git add .
 git commit -m "update: configs $(date)" || echo "nothing to commit"
 git push origin main
 
-echo "\nupdate done."
+echo ""
+echo "update done."
