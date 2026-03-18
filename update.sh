@@ -35,8 +35,9 @@ fi
 cd "$REPO_DIR"
 
 git add .
-git --allow-empty commit -m "update: configs $(date)" || echo "nothing to commit"
+git commit --allow-empty -m "update: configs $(date)" || echo "nothing to commit"
 git push origin main
 
 echo ""
 echo "update done."
+#teste update
