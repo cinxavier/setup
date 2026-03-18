@@ -1,0 +1,17 @@
+#!/bin/bash
+
+DOTFILES_DIR="$HOME/setup"
+
+case "$1" in
+    install)
+        "$DOTFILES_DIR/install.sh"
+        ;;
+    update)
+        "$DOTFILES_DIR/update.sh"
+        ;;
+    *)
+        echo "Uso:"
+        echo "  dot install   → aplicar configs"
+        echo "  dot update    → salvar configs"
+        ;;
+esac

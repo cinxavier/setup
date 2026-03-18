@@ -5,6 +5,17 @@ REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 echo "starting config"
 
+# -------- CLI SETUP --------
+echo "setting global command 'dot'..."
+
+mkdir -p "$HOME/.local/bin"
+
+if [ ! -f "$HOME/.local/bin/dot" ]; then
+    ln -s "$REPO_DIR/bin/dot" "$HOME/.local/bin/dot"
+    chmod +x "$REPO_DIR/bin/dot"
+    echo "'dot' command set."
+fi
+
 # -------- DCONF --------
 echo "setting dconf..."
 
@@ -36,6 +47,22 @@ echo "mouse set."
 echo "dconf done."
 
 echo "setting vscode"
+
+# ------- FIREFOX --------
+FIREFOX_DIR="$HOME/.mozilla/firefox"
+PROFILE=$(find "$FIREFOX_DIR" -maxdepth 1 -type d -name "*.default-release" | head -n 1)
+
+if [ -n "$PROFILE" ]; then
+    cp "$REPO_DIR/firefox/user.js" "$PROFILE/" 2>/dev/null || true
+fi
+echo "firefox set."
+
+# --------- DEFAULT APPS ---------
+mkdir -p "$HOME/.config"
+
+cp "$REPO_DIR/mime/mimeapps.list" "$HOME/.config/" 2>/dev/null || true
+echo "default apps done."
+
 # -------- VSCODE --------
 VSCODE_DIR="$HOME/.config/Code/User"
 
@@ -51,4 +78,11 @@ if [ -d "$HOME/.config/Code" ]; then
 fi
 
 echo "vscode done."
-echo "perhaps the machine needs to logout/login"
+
+# garantir PATH
+if ! echo "$PATH" | grep -q "$HOME/.local/bin"; then
+    echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
+    echo "PATH updated (reload the terminal)"
+else
+    echo "perhaps the machine needs to logout/login"
+fi
