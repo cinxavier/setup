@@ -20,6 +20,9 @@ dconf dump /org/gnome/desktop/peripherals/mouse/ > "$REPO_DIR/dconf/mouse.ini"
 dconf dump /org/gnome/desktop/peripherals/touchpad/ > "$REPO_DIR/dconf/touchpad.ini"
 echo "mouse exported."
 
+echo "exporting GNOME Terminal..."
+dconf dump /org/gnome/terminal/ > "$REPO_DIR/dconf/terminal.ini"
+
 echo "dconf done."
 # -------- VSCODE --------
 VSCODE_DIR="$HOME/.config/Code/User"
