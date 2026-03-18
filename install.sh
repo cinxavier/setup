@@ -3,7 +3,7 @@ set -e
 
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-echo "starting config"
+echo "starting config..."
 
 # -------- CLI SETUP --------
 echo "setting global command 'dot'..."
@@ -14,6 +14,31 @@ if [ ! -f "$HOME/.local/bin/dot" ]; then
     ln -s "$REPO_DIR/bin/dot" "$HOME/.local/bin/dot"
     chmod +x "$REPO_DIR/bin/dot"
     echo "'dot' command set."
+fi
+
+COMPLETION_DIR="$HOME/.config/dotfiles"
+COMPLETION_FILE="$COMPLETION_DIR/dot-completion.sh"
+
+mkdir -p "$COMPLETION_DIR"
+
+cat > "$COMPLETION_FILE" << 'EOF'
+_dot_completion() {
+    local cur
+
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    COMPREPLY=( $(compgen -W "install update" -- "$cur") )
+}
+
+complete -F _dot_completion dot
+EOF
+
+chmod 644 "$COMPLETION_FILE"
+
+if ! grep -q "dot-completion.sh" "$HOME/.bashrc"; then
+    echo "source $COMPLETION_FILE" >> "$HOME/.bashrc"
+    echo " Autocomplete added to .bashrc"
 fi
 
 # -------- DCONF --------
