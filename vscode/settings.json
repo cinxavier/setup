@@ -2,7 +2,7 @@
     "window.menuBarVisibility": "toggle",
     "workbench.colorTheme": "Monokai Dimmed",
     "github.copilot.enable": {
-        "*": true,
+        "*": false,
         "plaintext": false,
         "markdown": false,
         "scminput": false
