@@ -51,10 +51,21 @@ dconf load /org/gnome/desktop/interface/ < "$REPO_DIR/dconf/interface.ini"
 dconf load /org/gnome/desktop/wm/preferences/ < "$REPO_DIR/dconf/wm.ini"
 echo "interface set."
 
+# keybinds
+# reseting original keybinds to overwrite mine
+echo -n "reseting keybinds..."
+dconf reset -f /org/gnome/settings-daemon/plugins/media-keys/
+dconf reset -f /org/gnome/desktop/wm/keybindings/
+echo "done."
+
+# setting my keybinds
 [ -f "$REPO_DIR/dconf/keybindings.ini" ] && \
 dconf load /org/gnome/settings-daemon/plugins/media-keys/ < "$REPO_DIR/dconf/keybindings.ini"
+dconf load /org/gnome/desktop/wm/keybindings/ < "$REPO_DIR/dconf/wm-keybindings.ini"
 echo "keybinds set."
 
+
+# terminal reset
 echo "reseting terminal..."
 dconf reset -f /org/gnome/terminal/
 

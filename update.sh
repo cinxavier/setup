@@ -15,7 +15,10 @@ dconf dump /org/gnome/desktop/interface/ > "$REPO_DIR/dconf/interface.ini"
 dconf dump /org/gnome/desktop/wm/preferences/ > "$REPO_DIR/dconf/wm.ini"
 echo "interface exported."
 
+# keybinds
+
 dconf dump /org/gnome/settings-daemon/plugins/media-keys/ > "$REPO_DIR/dconf/keybindings.ini"
+dconf dump /org/gnome/desktop/wm/keybindings/ > "$REPO_DIR/dconf/wm-keybindings.ini"
 echo "keybinds exported."
 
 dconf dump /org/gnome/desktop/peripherals/mouse/ > "$REPO_DIR/dconf/mouse.ini"
