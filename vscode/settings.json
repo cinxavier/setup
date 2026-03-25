@@ -1,16 +1,19 @@
 {
     "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorTheme": "Monokai",
     "github.copilot.enable": {
-        "*": false,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
+      "*": true,
+      "plaintext": false,
+      "markdown": false,
+      "scminput": false
     },
     "window.commandCenter": false,
     "chat.commandCenter.enabled": false,
     "editor.tabSize": 2,
     "workbench.tree.indent": 16,
     "terminal.integrated.enableMultiLinePasteWarning": "never",
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "ruff.configuration": {
+    "indent-width": 2
+  }
 }
