@@ -85,12 +85,22 @@ echo "dconf done."
 echo "setting vscode"
 
 # ------- FIREFOX --------
+
+echo "setting firefox..."
 FIREFOX_DIR="$HOME/.mozilla/firefox"
 PROFILE=$(find "$FIREFOX_DIR" -maxdepth 1 -type d -name "*.default-release" | head -n 1)
 
 if [ -n "$PROFILE" ]; then
     cp "$REPO_DIR/firefox/user.js" "$PROFILE/" 2>/dev/null || true
+
+    echo "installing language-packs"
+    EXT_DIR="$PROFILE/extensions"
+    mkdir -p "$EXT_DIR"
+
+    cp "$REPO_DIR/firefox/fr.xpi" "$EXT_DIR/" 2>/dev/null || true
 fi
+
+
 echo "firefox set."
 
 # --------- DEFAULT APPS ---------
