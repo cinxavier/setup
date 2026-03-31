@@ -9,7 +9,7 @@ mkdir -p "$REPO_DIR/dconf"
 mkdir -p "$REPO_DIR/vscode"
 
 # -------- DCONF --------
-echo -n "Exporting dconf..."
+echo "Exporting dconf..."
 
 dconf dump /org/gnome/desktop/interface/ > "$REPO_DIR/dconf/interface.ini"
 dconf dump /org/gnome/desktop/wm/preferences/ > "$REPO_DIR/dconf/wm.ini"
@@ -30,6 +30,9 @@ echo "mouse exported."
 dconf dump /org/gnome/terminal/ > "$REPO_DIR/dconf/terminal.ini"
 dconf dump /org/gnome/shell/ > "$REPO_DIR/dconf/shell.ini"
 echo "GNOME terminal exported."
+
+dconf dump /org/gnome/shell/ > "$REPO_DIR/dconf/shell.ini"
+echo "dock exported."
 
 echo "done."
 

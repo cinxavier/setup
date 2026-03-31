@@ -15,5 +15,6 @@
     "explorer.confirmDelete": false,
     "ruff.configuration": {
     "indent-width": 2
-  }
+  },
+  "editor.minimap.maxColumn": 80
 }

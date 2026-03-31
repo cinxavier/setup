@@ -51,6 +51,15 @@ dconf load /org/gnome/desktop/interface/ < "$REPO_DIR/dconf/interface.ini"
 dconf load /org/gnome/desktop/wm/preferences/ < "$REPO_DIR/dconf/wm.ini"
 echo "interface set."
 
+echo "reseting dock..."
+
+dconf reset /org/gnome/shell/favorite-apps
+
+echo "applaing new dock..."
+
+dconf load /org/gnome/shell/ < "$REPO_DIR/dconf/shell.ini"
+
+
 # keybinds
 # reseting original keybinds to overwrite mine
 echo -n "reseting keybinds..."
@@ -79,6 +88,9 @@ dconf load /org/gnome/desktop/peripherals/mouse/ < "$REPO_DIR/dconf/mouse.ini"
 [ -f "$REPO_DIR/dconf/touchpad.ini" ] && \
 dconf load /org/gnome/desktop/peripherals/touchpad/ < "$REPO_DIR/dconf/touchpad.ini"
 echo "mouse set."
+
+
+
 
 echo "dconf done."
 
@@ -124,6 +136,18 @@ if [ -d "$HOME/.config/Code" ]; then
 fi
 
 echo "vscode done."
+
+if [ ! -d "$HOME/projects/" ]; then
+    PROJECTS_FOLDER="$HOME/projects"
+    mkdir -p "$PROJECTS_FOLDER"
+
+    GITHUB_REPO="https://github.com/cinxavier"
+    
+    git clone "$GITHUB_REPO"/exercicios-IC.git "$PROJECTS_FOLDER"
+    git clone "$GITHUB_REPO"/exercicios-IP.git "$PROJECTS_FOLDER"
+fi
+
+
 
 # garantir PATH
 if ! echo "$PATH" | grep -q "$HOME/.local/bin"; then
