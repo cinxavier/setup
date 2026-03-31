@@ -62,7 +62,7 @@ dconf load /org/gnome/shell/ < "$REPO_DIR/dconf/shell.ini"
 
 # keybinds
 # reseting original keybinds to overwrite mine
-echo -n "reseting keybinds..."
+echo "reseting keybinds..."
 dconf reset -f /org/gnome/settings-daemon/plugins/media-keys/
 dconf reset -f /org/gnome/desktop/wm/keybindings/
 echo "done."
@@ -109,7 +109,9 @@ if [ -n "$PROFILE" ]; then
     EXT_DIR="$PROFILE/extensions"
     mkdir -p "$EXT_DIR"
 
-    cp "$REPO_DIR/firefox/fr.xpi" "$EXT_DIR/" 2>/dev/null || true
+    cp "$REPO_DIR/firefox/extensions/"*.xpi "$EXT_DIR/" 2>/dev/null || true
+    
+
 fi
 
 

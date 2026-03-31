@@ -36,7 +36,7 @@ echo "dock exported."
 
 echo "done."
 
-# ------------- firefox -------------
+# ------------- FIREFOX -------------
 echo -n "Exporting Firefox..."
 
 FIREFOX_DIR="$HOME/.mozilla/firefox"
@@ -44,24 +44,34 @@ mkdir -p "$REPO_DIR/firefox"
 
 PROFILE=$(find "$FIREFOX_DIR" -maxdepth 1 -type d -name "*.default-release" | head -n 1)
 
-if [ -n "$PROFILE" ]; then
-    # config segura
-    cp "$PROFILE/user.js" "$REPO_DIR/firefox/" 2>/dev/null || true
+EXT_REPO="$REPO_DIR/firefox/extensions"
+mkdir -p "$EXT_REPO"
 
+if [ -n "$PROFILE" ]; then
     # -------- LANGUAGE PACK --------
     EXT_DIR="$PROFILE/extensions"
 
-    if [ -d "$EXT_DIR" ]; then
-        LANGPACK=$(find "$EXT_DIR" -name "langpack-*.xpi" | head -n 1)
+    # config segura
+    cp "$PROFILE/user.js" "$REPO_DIR/firefox/" 2>/dev/null || true
 
-        if [ -n "$LANGPACK" ]; then
-            cp "$LANGPACK" "$REPO_DIR/firefox/"
-            echo "Language pack copied"
-        else
-            echo "No language pack found"
-        fi
+
+    find "$EXT_DIR" -name "*dictionary*.xpi" -exec cp {} "$REPO_DIR/firefox/" \; 2>/dev/null || true
+
+    if [ -d "$EXT_DIR" ]; then
+        # limpar antigos
+        rm -f "$EXT_REPO"/*.xpi
+
+        # copiar apenas idiomas
+        find "$EXT_DIR" -name "langpack-*.xpi" -exec cp {} "$EXT_REPO/" \;
+        find "$EXT_DIR" -name "*dictionary*.xpi" -exec cp {} "$EXT_REPO/" \;
     fi
 fi
+
+
+ # ortografia
+EXT_DIR="$PROFILE/extensions"
+
+
 echo "done."
 
 
