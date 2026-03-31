@@ -145,8 +145,8 @@ if [ ! -d "$HOME/projects/" ]; then
 
     GITHUB_REPO="https://github.com/cinxavier"
     
-    git clone "$GITHUB_REPO"/exercicios-IC.git "$PROJECTS_FOLDER"
-    git clone "$GITHUB_REPO"/exercicios-IP.git "$PROJECTS_FOLDER"
+    git clone "$GITHUB_REPO"/exercicios-IP.git "$PROJECTS_FOLDER"/exercicios-IP
+    git clone "$GITHUB_REPO"/exercicios-IC.git "$PROJECTS_FOLDER"/exercicios-IC
 fi
 
 
