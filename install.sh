@@ -28,7 +28,7 @@ _dot_completion() {
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
 
-    COMPREPLY=( $(compgen -W "install update" -- "$cur") )
+    COMPREPLY=( $(compgen -W "install update upload" -- "$cur") )
 }
 
 complete -F _dot_completion dot
