@@ -16,6 +16,6 @@ case "$1" in
         echo "Uso:"
         echo "  dot install   → aplica as configurações do perfil"
         echo "  dot update    → resgata o perfil do github"
-        echo "  dot update    → salvar configs locais no github"
+        echo "  dot upload    → salvar configs locais no github"
         ;;
 esac
