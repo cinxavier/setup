@@ -139,14 +139,20 @@ fi
 
 echo "vscode done."
 
+# -------- PROJECTS --------
 if [ ! -d "$HOME/projects/" ]; then
     PROJECTS_FOLDER="$HOME/projects"
     mkdir -p "$PROJECTS_FOLDER"
 
     GITHUB_REPO="https://github.com/cinxavier"
     
+    echo -n "clonning exercicios-IP..."
     git clone "$GITHUB_REPO"/exercicios-IP.git "$PROJECTS_FOLDER"/exercicios-IP
+    echo "done."
+
+    echo -n "clonning exercicios-IC..."
     git clone "$GITHUB_REPO"/exercicios-IC.git "$PROJECTS_FOLDER"/exercicios-IC
+    echo "done."
 fi
 
 
