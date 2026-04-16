@@ -3,38 +3,38 @@ set -e
 
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-echo "updating configs..."
+echo "====================== updating configs..."
 
 mkdir -p "$REPO_DIR/dconf"
 mkdir -p "$REPO_DIR/vscode"
 
 # -------- DCONF --------
-echo "Exporting dconf..."
+echo "====================== Exporting dconf..."
 
 dconf dump /org/gnome/desktop/interface/ > "$REPO_DIR/dconf/interface.ini"
 dconf dump /org/gnome/desktop/wm/preferences/ > "$REPO_DIR/dconf/wm.ini"
-echo "interface exported."
+echo "====================== interface exported."
 
 
 # keybinds
 dconf dump /org/gnome/settings-daemon/plugins/media-keys/ > "$REPO_DIR/dconf/keybindings.ini"
 dconf dump /org/gnome/desktop/wm/keybindings/ > "$REPO_DIR/dconf/wm-keybindings.ini"
-echo "keybinds exported."
+echo "====================== keybinds exported."
 
 # mouse
 dconf dump /org/gnome/desktop/peripherals/mouse/ > "$REPO_DIR/dconf/mouse.ini"
 dconf dump /org/gnome/desktop/peripherals/touchpad/ > "$REPO_DIR/dconf/touchpad.ini"
-echo "mouse exported."
+echo "====================== mouse exported."
 
 # terminal
 dconf dump /org/gnome/terminal/ > "$REPO_DIR/dconf/terminal.ini"
 dconf dump /org/gnome/shell/ > "$REPO_DIR/dconf/shell.ini"
-echo "GNOME terminal exported."
+echo "====================== GNOME terminal exported."
 
 dconf dump /org/gnome/shell/ > "$REPO_DIR/dconf/shell.ini"
-echo "dock exported."
+echo "====================== dock exported."
 
-echo "done."
+echo "====================== done."
 
 # ------------- FIREFOX -------------
 echo -n "Exporting Firefox..."
@@ -72,7 +72,7 @@ fi
 EXT_DIR="$PROFILE/extensions"
 
 
-echo "done."
+echo "====================== done."
 
 
 # --------- DEFAULT APPS ----------
@@ -89,35 +89,35 @@ VSCODE_DIR="$HOME/.config/Code/User"
 echo -n "Exporting vscode..."
 if [ -d "$VSCODE_DIR" ]; then
     cp "$VSCODE_DIR/keybindings.json" "$REPO_DIR/vscode/" 2>/dev/null || true
-    echo "keybinds exported."
+    echo "====================== keybinds exported."
     cp "$VSCODE_DIR/settings.json" "$REPO_DIR/vscode/" 2>/dev/null || true
-    echo "user settings exported."
+    echo "====================== user settings exported."
 fi
 
 # -------- GIT --------
 cd "$REPO_DIR"
 
-echo "committing changes..."
-echo "committing to profile..."
+echo "====================== committing changes..."
+echo "====================== committing to profile..."
 
 git add .
-git commit --allow-empty -m "update: configs $(date)" --quiet || echo "nothing to commit"
+git commit --allow-empty -m "update: configs $(date)" --quiet || echo "====================== nothing to commit"
 git push origin main
-echo "done."
+echo "====================== done."
 
-echo "committing to exercicios-IP..."
+echo "====================== committing to exercicios-IP..."
 cd "$HOME/projects/exercicios-IP"
 git add .
-git commit --allow-empty -m "update: configs $(date)" --quiet || echo "nothing to commit"
+git commit --allow-empty -m "update: configs $(date)" --quiet || echo "====================== nothing to commit"
 git push origin main
-echo "done."
+echo "====================== done."
 
-echo "committing to exercicios-IC..."
+echo "====================== committing to exercicios-IC..."
 cd "$HOME/projects/exercicios-IC"
 git add .
-git commit --allow-empty -m "update: configs $(date)" --quiet || echo "nothing to commit"
+git commit --allow-empty -m "update: configs $(date)" --quiet || echo "====================== nothing to commit"
 git push origin main
-echo "done"
+echo "====================== done"
 
-echo "update done."
+echo "====================== update done."
 #teste update
