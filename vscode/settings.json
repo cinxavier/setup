@@ -16,5 +16,8 @@
     "ruff.configuration": {
     "indent-width": 2
   },
-  "editor.minimap.maxColumn": 80
+  "editor.minimap.maxColumn": 80,
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  }
 }
