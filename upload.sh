@@ -97,21 +97,26 @@ fi
 # -------- GIT --------
 cd "$REPO_DIR"
 
+echo "committing changes..."
+echo "committing to profile..."
 
 git add .
 git commit --allow-empty -m "update: configs $(date)" --quiet || echo "nothing to commit"
 git push origin main
+echo "done."
 
+echo "committing to exercicios-IP..."
 cd "$HOME/projects/exercicios-IP"
 git add .
 git commit --allow-empty -m "update: configs $(date)" --quiet || echo "nothing to commit"
 git push origin main
+echo "done."
 
+echo "committing to exercicios-IC..."
 cd "$HOME/projects/exercicios-IC"
 git add .
 git commit --allow-empty -m "update: configs $(date)" --quiet || echo "nothing to commit"
 git push origin main
-
 echo "done"
 
 echo "update done."
