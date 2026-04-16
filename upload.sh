@@ -37,7 +37,7 @@ echo "------ Remote Profile------ dock exported."
 echo "------ Remote Profile------ done."
 
 # ------------- FIREFOX -------------
-echo -n "Exporting Firefox..."
+echo "Exporting Firefox..."
 
 FIREFOX_DIR="$HOME/.mozilla/firefox"
 mkdir -p "$REPO_DIR/firefox"
@@ -86,7 +86,7 @@ cp "$HOME/.config/mimeapps.list" "$REPO_DIR/mime/" 2>/dev/null || true
 
 # -------- VSCODE --------
 VSCODE_DIR="$HOME/.config/Code/User"
-echo -n "Exporting vscode..."
+echo "Exporting vscode..."
 if [ -d "$VSCODE_DIR" ]; then
     cp "$VSCODE_DIR/keybindings.json" "$REPO_DIR/vscode/" 2>/dev/null || true
     echo "------ Remote Profile------ keybinds exported."
