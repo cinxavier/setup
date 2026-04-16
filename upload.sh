@@ -97,8 +97,19 @@ fi
 # -------- GIT --------
 cd "$REPO_DIR"
 
+
 git add .
-git commit --allow-empty -m "update: configs $(date)" || echo "nothing to commit"
+git commit --allow-empty -m "update: configs $(date)" --quiet || echo "nothing to commit"
+git push origin main
+
+cd "$HOME/projects/exercicios-IP"
+git add .
+git commit --allow-empty -m "update: configs $(date)" --quiet || echo "nothing to commit"
+git push origin main
+
+cd "$HOME/projects/exercicios-IC"
+git add .
+git commit --allow-empty -m "update: configs $(date)" --quiet || echo "nothing to commit"
 git push origin main
 
 echo "done"

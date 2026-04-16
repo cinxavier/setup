@@ -143,10 +143,6 @@
     "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
   },
   {
-    "key": "alt+;",
-    "command": "github.copilot.toggleCopilot"
-  },
-  {
     "key": "ctrl+e ctrl+v",
     "command": "editor.emmet.action.evaluateMathExpression"
   }
