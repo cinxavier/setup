@@ -1,6 +1,14 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
   {
+    "key": "ctrl+;",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {
+      "snippet": "   # fmt: skip"
+    }
+  },
+  {
     "key": "alt+'",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
@@ -145,5 +153,9 @@
   {
     "key": "ctrl+e ctrl+v",
     "command": "editor.emmet.action.evaluateMathExpression"
+  },
+  {
+    "key": "ctrl+shift+a ctrl+shift+w",
+    "command": "editor.debug.action.selectionToWatch"
   }
 ]
