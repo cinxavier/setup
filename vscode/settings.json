@@ -19,5 +19,6 @@
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
+  "workbench.editor.empty.hint": "hidden",
 
 }
