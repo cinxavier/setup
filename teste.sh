@@ -1,7 +1,11 @@
 #!/bin/bash
 set -e
 
-echo "pwd: $(pwd)"
+projects_dir="$HOME/projects"
 
-cd ..
-echo "pwd: $(pwd)"
+echo "updating projects"
+
+for folder in "$projects_dir"/*; do
+  echo -n "updating "$folder"..."
+  echo "done."
+done

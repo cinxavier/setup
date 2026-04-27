@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-git pull --force origin main
+git -C "$HOME/setup" pull
 
 projects_dir="$HOME/projects"
 
