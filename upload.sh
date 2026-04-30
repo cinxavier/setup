@@ -39,10 +39,10 @@ echo "------ Remote Profile ------ done."
 # ------------- FIREFOX -------------
 echo "------ Remote Profile ------ Exporting Firefox"
 
-FIREFOX_DIR="$HOME/.mozilla/firefox"
+FIREFOX_DIR="$HOME/snap/firefox/common/.mozilla/firefox"
 mkdir -p "$REPO_DIR/firefox"
 
-PROFILE=$(find "$FIREFOX_DIR" -maxdepth 1 -type d -name "*.default-release" | head -n 1)
+PROFILE=$(find "$FIREFOX_DIR" -maxdepth 1 -type d -name "*.default" | head -n 1)
 
 EXT_REPO="$REPO_DIR/firefox/extensions"
 mkdir -p "$EXT_REPO"
