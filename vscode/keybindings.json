@@ -1,5 +1,6 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
+
   {
     "key": "ctrl+;",
     "command": "editor.action.insertSnippet",
@@ -157,5 +158,13 @@
   {
     "key": "ctrl+shift+a ctrl+shift+w",
     "command": "editor.debug.action.selectionToWatch"
+  },
+  {
+    "key": "ctrl+alt+p ctrl+alt+r",
+    "command": "workbench.action.positionPanelRight",
+  },
+  {
+    "key": "ctrl+alt+p ctrl+alt+b",
+    "command": "workbench.action.positionPanelBottom"
   }
 ]

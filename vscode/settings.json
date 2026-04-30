@@ -20,6 +20,6 @@
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "workbench.editor.empty.hint": "hidden",
-  "workbench.colorTheme": "Min Theme+",
+  "workbench.colorTheme": "Min Dark",
 
 }
