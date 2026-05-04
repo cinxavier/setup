@@ -21,5 +21,9 @@
   },
   "workbench.editor.empty.hint": "hidden",
   "workbench.colorTheme": "Min Dark",
+  "workbench.editor.preferHistoryBasedLanguageDetection": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 
 }
