@@ -166,5 +166,15 @@
   {
     "key": "ctrl+alt+p ctrl+alt+b",
     "command": "workbench.action.positionPanelBottom"
+  },
+  {
+    "key": "ctrl+o ctrl+o",
+    "command": "workbench.action.files.openFile",
+    "when": "true"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "-workbench.action.files.openFile",
+    "when": "true"
   }
 ]
