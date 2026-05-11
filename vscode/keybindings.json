@@ -168,13 +168,21 @@
     "command": "workbench.action.positionPanelBottom"
   },
   {
-    "key": "ctrl+o ctrl+o",
-    "command": "workbench.action.files.openFile",
-    "when": "true"
+    "key": "ctrl+w",
+    "command": "-workbench.action.terminal.killEditor",
+    "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
   },
   {
-    "key": "ctrl+o",
-    "command": "-workbench.action.files.openFile",
-    "when": "true"
+    "key": "delete",
+    "command": "-workbench.action.terminal.killActiveTab",
+    "when": "terminalHasBeenCreated && terminalTabsFocus || terminalIsOpen && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
+  },
+  {
+    "key": "ctrl+shift+delete",
+    "command": "workbench.action.terminal.kill"
+  },
+  {
+    "key": "ctrl+shift+insert",
+    "command": "workbench.action.terminal.newInActiveWorkspace"
   }
 ]
