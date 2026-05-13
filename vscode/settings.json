@@ -1,7 +1,7 @@
 {
   "window.menuBarVisibility": "toggle",
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "plaintext": false,
     "markdown": false,
     "scminput": false
@@ -25,5 +25,6 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "python.terminal.activateEnvInCurrentTerminal": true,
 
 }
