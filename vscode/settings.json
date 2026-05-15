@@ -1,7 +1,7 @@
 {
   "window.menuBarVisibility": "toggle",
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "plaintext": false,
     "markdown": false,
     "scminput": false
@@ -20,11 +20,11 @@
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "workbench.editor.empty.hint": "hidden",
-  "workbench.colorTheme": "Min Dark",
   "workbench.editor.preferHistoryBasedLanguageDetection": true,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "python.terminal.activateEnvInCurrentTerminal": true,
+  "workbench.colorTheme": "Min Dark",
 
 }
