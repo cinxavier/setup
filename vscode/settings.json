@@ -4,7 +4,8 @@
     "*": false,
     "plaintext": false,
     "markdown": false,
-    "scminput": false
+    "scminput": false,
+    "python": true
   },
   "window.commandCenter": false,
   "chat.commandCenter.enabled": false,
@@ -13,7 +14,7 @@
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   "explorer.confirmDelete": false,
   "ruff.configuration": {
-    "indent-width": 2
+    "indent-width": 2,
   },
   "editor.minimap.maxColumn": 80,
   "[python]": {
@@ -25,5 +26,14 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "python.terminal.activateEnvInCurrentTerminal": true,
-  "workbench.colorTheme": "Min Dark"
+  "workbench.colorTheme": "Solarized Dark",
+  "terminal.external.osxExec": "bash",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "explorer.copyPathSeparator": "/",
+  "explorer.copyRelativePathSeparator": "/",
+  "terminal.integrated.suggest.cdPath": "relative",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
 }
