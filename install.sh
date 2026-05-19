@@ -97,8 +97,7 @@ echo "dconf done."
 # ------- FIREFOX --------
 
 echo "setting firefox..."
-firefox
-pkill firefox
+firefox &
 
 FIREFOX_DIR="$HOME/snap/firefox/common/.mozilla/firefox"
 PROFILE=$(find "$FIREFOX_DIR" -maxdepth 1 -type d -name "*.default" | head -n 1)
@@ -114,7 +113,7 @@ if [ -n "$PROFILE" ]; then
     
 
 fi
-
+pkill firefox
 
 echo "firefox set."
 
@@ -127,9 +126,7 @@ echo "default apps done."
 # -------- VSCODE --------
 echo "setting vscode"
 
-code 
-
-pkill code
+code
 
 VSCODE_DIR="$HOME/.config/Code/User"
 
@@ -171,3 +168,5 @@ if ! echo "$PATH" | grep -q "$HO$HOME/.config/Code/UserME/.local/bin"; then
 else
     echo "perhaps the machine needs to logout/login"
 fi
+
+echo "install done!"

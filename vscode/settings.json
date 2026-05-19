@@ -13,7 +13,7 @@
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   "explorer.confirmDelete": false,
   "ruff.configuration": {
-    "indent-width": 2,
+    "indent-width": 2
   },
   "editor.minimap.maxColumn": 80,
   "[python]": {
@@ -25,6 +25,5 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "python.terminal.activateEnvInCurrentTerminal": true,
-  "workbench.colorTheme": "Min Dark",
-
+  "workbench.colorTheme": "Min Dark"
 }
