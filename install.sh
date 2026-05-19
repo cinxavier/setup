@@ -94,11 +94,12 @@ echo "mouse set."
 
 echo "dconf done."
 
-echo "setting vscode"
-
 # ------- FIREFOX --------
 
 echo "setting firefox..."
+firefox
+pkill firefox
+
 FIREFOX_DIR="$HOME/snap/firefox/common/.mozilla/firefox"
 PROFILE=$(find "$FIREFOX_DIR" -maxdepth 1 -type d -name "*.default" | head -n 1)
 
@@ -124,6 +125,12 @@ cp "$REPO_DIR/mime/mimeapps.list" "$HOME/.config/" 2>/dev/null || true
 echo "default apps done."
 
 # -------- VSCODE --------
+echo "setting vscode"
+
+code 
+
+pkill code
+
 VSCODE_DIR="$HOME/.config/Code/User"
 
 if [ -d "$HOME/.config/Code" ]; then
@@ -158,7 +165,7 @@ fi
 
 
 # garantir PATH
-if ! echo "$PATH" | grep -q "$HOME/.local/bin"; then
+if ! echo "$PATH" | grep -q "$HO$HOME/.config/Code/UserME/.local/bin"; then
     echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
     echo "PATH updated (reload the terminal)"
 else

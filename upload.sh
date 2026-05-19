@@ -101,23 +101,22 @@ echo "------ Remote Profile ------ committing changes..."
 echo "------ Remote Profile ------ committing to profile..."
 
 git add .
-git commit --allow-empty -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
+git commit -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
 git push origin main
 echo "------ Remote Profile ------ done."
 
 echo "------ Remote Profile ------ committing to exercicios-IP..."
 cd "$HOME/projects/exercicios-IP"
 git add .
-git commit --allow-empty -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
+git commit -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
 git push origin main
 echo "------ Remote Profile ------ done."
 
 echo "------ Remote Profile ------ committing to exercicios-IC..."
 cd "$HOME/projects/exercicios-IC"
 git add .
-git commit --allow-empty -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
+git commit -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
 git push origin main
 echo "------ Remote Profile ------ done"
 
 echo "------ Remote Profile ------ update done."
-#teste update
