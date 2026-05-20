@@ -8,6 +8,5 @@ application/xhtml+xml=firefox_firefox.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox_firefox.desktop;
-application/xhtml+xml=firefox_firefox.desktop;
 text/html=firefox_firefox.desktop;
 x-scheme-handler/https=firefox_firefox.desktop;
