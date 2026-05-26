@@ -5,7 +5,7 @@
     "plaintext": false,
     "markdown": false,
     "scminput": false,
-    "python": true
+    "python": false
   },
   "window.commandCenter": false,
   "chat.commandCenter.enabled": false,
