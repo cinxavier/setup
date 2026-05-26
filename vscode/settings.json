@@ -5,7 +5,7 @@
     "plaintext": false,
     "markdown": false,
     "scminput": false,
-    "python": false
+    "python": true
   },
   "window.commandCenter": false,
   "chat.commandCenter.enabled": false,
@@ -26,7 +26,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "python.terminal.activateEnvInCurrentTerminal": true,
-  "workbench.colorTheme": "Min Dark",
   "terminal.external.osxExec": "bash",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "explorer.copyPathSeparator": "/",
@@ -35,5 +34,6 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "workbench.colorTheme": "Min Dark",
 
 }
