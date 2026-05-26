@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-firefox &
-code
-
-
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 echo "starting config..."
@@ -102,18 +98,18 @@ echo "dconf done."
 
 echo "setting firefox..."
 
-
 FIREFOX_DIR="$HOME/snap/firefox/common/.mozilla/firefox"
 PROFILE=$(find "$FIREFOX_DIR" -maxdepth 1 -type d -name "*.default" | head -n 1)
 
 if [ -n "$PROFILE" ]; then
-    for file in ./firefox/*; do
+    for file in $REPO_DIR/firefox/*; do
         echo "installing $file"
-        cp "$file" "$PROFILE/" 2>/dev/null || true
+        if [ -f $file ]; then
+            cp "$file" "$PROFILE/" 2>/dev/null || true
+        elif [ -d $file ]; then
+            cp -r "$file" "$PROFILE/" 2>/dev/null || true
+        fi
     done
-    
-    
-
 fi
 
 echo "firefox set."

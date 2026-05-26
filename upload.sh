@@ -52,7 +52,7 @@ mkdir -p "$EXT_REPO"
 if [ -n "$PROFILE" ]; then
     # -------- LANGUAGE PACK --------
     EXT_DIR="$PROFILE/extensions"
-    FILES_LIST=("user.js" "prefs.js" "extensions.json" "addons.json")
+    FILES_LIST=("user.js")
     
     for file in "${FILES_LIST[@]}"; do
         cp "$PROFILE/$file" "$REPO_DIR/firefox/" 2>/dev/null || true
