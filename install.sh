@@ -103,8 +103,10 @@ FIREFOX_DIR="$HOME/snap/firefox/common/.mozilla/firefox"
 PROFILE=$(find "$FIREFOX_DIR" -maxdepth 1 -type d -name "*.default" | head -n 1)
 
 if [ -n "$PROFILE" ]; then
-    cp "$REPO_DIR/firefox/user.js" "$PROFILE/" 2>/dev/null || true
-
+    for file in ./firefox/files/*; do
+        cp "$file" "$PROFILE/" 2>/dev/null || true
+    done
+    
     echo "installing language-packs"
     EXT_DIR="$PROFILE/extensions"
     mkdir -p "$EXT_DIR"

@@ -50,10 +50,11 @@ mkdir -p "$EXT_REPO"
 if [ -n "$PROFILE" ]; then
     # -------- LANGUAGE PACK --------
     EXT_DIR="$PROFILE/extensions"
-
-    # config segura
-    cp "$PROFILE/user.js" "$REPO_DIR/firefox/" 2>/dev/null || true
-
+    FILES_LIST=("user.js" "prefs.js" "extensions.json" "addons.json")
+    
+    for file in "${FILES_LIST[@]}"; do
+        cp "$PROFILE/$file" "$REPO_DIR/firefox/files" 2>/dev/null || true
+    done
 
     find "$EXT_DIR" -name "*dictionary*.xpi" -exec cp {} "$REPO_DIR/firefox/" \; 2>/dev/null || true
 
