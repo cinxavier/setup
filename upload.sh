@@ -53,26 +53,16 @@ if [ -n "$PROFILE" ]; then
     FILES_LIST=("user.js" "prefs.js" "extensions.json" "addons.json")
     
     for file in "${FILES_LIST[@]}"; do
-        cp "$PROFILE/$file" "$REPO_DIR/firefox/files" 2>/dev/null || true
+        cp "$PROFILE/$file" "$REPO_DIR/firefox/" 2>/dev/null || true
     done
 
     find "$EXT_DIR" -name "*dictionary*.xpi" -exec cp {} "$REPO_DIR/firefox/" \; 2>/dev/null || true
 
     if [ -d "$EXT_DIR" ]; then
-        # limpar antigos
-        rm -f "$EXT_REPO"/*.xpi
-
-        # copiar apenas idiomas
-        find "$EXT_DIR" -name "langpack-*.xpi" -exec cp {} "$EXT_REPO/" \;
-        find "$EXT_DIR" -name "*dictionary*.xpi" -exec cp {} "$EXT_REPO/" \;
+        rm -f $EXT_REPO/*.xpi
+        cp $EXT_DIR/* $EXT_REPO/
     fi
 fi
-
-
- # ortografia
-EXT_DIR="$PROFILE/extensions"
-
-
 echo "------ Remote Profile ------ done."
 
 

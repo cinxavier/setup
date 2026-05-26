@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+firefox &
+code
+
+
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 echo "starting config..."
@@ -97,25 +101,20 @@ echo "dconf done."
 # ------- FIREFOX --------
 
 echo "setting firefox..."
-firefox &
+
 
 FIREFOX_DIR="$HOME/snap/firefox/common/.mozilla/firefox"
 PROFILE=$(find "$FIREFOX_DIR" -maxdepth 1 -type d -name "*.default" | head -n 1)
 
 if [ -n "$PROFILE" ]; then
-    for file in ./firefox/files/*; do
+    for file in ./firefox/*; do
+        echo "installing $file"
         cp "$file" "$PROFILE/" 2>/dev/null || true
     done
     
-    echo "installing language-packs"
-    EXT_DIR="$PROFILE/extensions"
-    mkdir -p "$EXT_DIR"
-
-    cp "$REPO_DIR/firefox/extensions/"*.xpi "$EXT_DIR/" 2>/dev/null || true
     
 
 fi
-pkill firefox
 
 echo "firefox set."
 
@@ -127,8 +126,6 @@ echo "default apps done."
 
 # -------- VSCODE --------
 echo "setting vscode"
-
-code
 
 VSCODE_DIR="$HOME/.config/Code/User"
 
