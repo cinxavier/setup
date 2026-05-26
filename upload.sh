@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+git config --global credential.helper 'cache --timeout=3600'
+
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 echo "------ Remote Profile ------ updating configs..."
