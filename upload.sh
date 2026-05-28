@@ -91,25 +91,17 @@ fi
 cd "$REPO_DIR"
 
 echo "------ Remote Profile ------ committing changes..."
-echo "------ Remote Profile ------ committing to profile..."
 
-git add .
-git commit -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
-git push origin main
-echo "------ Remote Profile ------ done."
-
-echo "------ Remote Profile ------ committing to exercicios-IP..."
-cd "$HOME/projects/exercicios-IP"
-git add .
-git commit -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
-git push origin main
-echo "------ Remote Profile ------ done."
-
-echo "------ Remote Profile ------ committing to exercicios-IC..."
-cd "$HOME/projects/exercicios-IC"
-git add .
-git commit -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
-git push origin main
+PATHS=("." "$HOME/projects/exercicios-IP" "$HOME/projects/exercicios-IC" "$HOME/projects/projeto-final-ic")
+for i in ${PATHS[@]} 
+do
+    echo "------ Remote Profile ------ $i..."
+    cd $i
+    git add .
+    git commit -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
+    git push origin main
+echo "------ Remote Profile ------ done with $i."
+done
 echo "------ Remote Profile ------ done"
 
 echo "------ Remote Profile ------ update done."
