@@ -22,7 +22,7 @@ fi
 while true; do
     read -p "Deseja instalar as atualizações? (S/n) " sn
     case $sn in
-        [Ss]* ) dot install; break;;
+        [Ss]* ) $HOME/setup/install.sh; break;;
         [Nn]* ) exit;;
         * ) echo "Apenas 's' ou 'n'";;
     esac
