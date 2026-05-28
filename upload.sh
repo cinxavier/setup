@@ -96,12 +96,15 @@ PATHS=("." "$HOME/projects/exercicios-IP" "$HOME/projects/exercicios-IC" "$HOME/
 for i in ${PATHS[@]} 
 do
     echo "------ Remote Profile ------ $i..."
-    cd $i
-    git add .
-    git commit -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
-    git push origin main
-echo "------ Remote Profile ------ done with $i."
+    if [ -d $i ]; then
+        cd $i
+        git add .
+        git commit -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
+        git push origin main
+        echo "------ Remote Profile ------ done with $i."
+    fi
 done
+
 echo "------ Remote Profile ------ done"
 
 echo "------ Remote Profile ------ update done."
