@@ -32,7 +32,7 @@
   "explorer.copyRelativePathSeparator": "/",
   "terminal.integrated.suggest.cdPath": "relative",
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "workbench.colorTheme": "Min Dark",
 

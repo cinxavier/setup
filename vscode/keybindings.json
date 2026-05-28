@@ -81,10 +81,6 @@
     "when": "viewContainer.workbench.view.explorer.enabled"
   },
   {
-    "key": "alt+;",
-    "command": "github.copilot.completions.toggle"
-  },
-  {
     "key": "ctrl+shift+i",
     "command": "editor.action.formatDocument.multiple"
   },
@@ -172,5 +168,9 @@
   {
     "key": "ctrl+shift+insert",
     "command": "workbench.action.terminal.newInActiveWorkspace"
-  }
+  },
+  {
+    "key": "alt+;",
+    "command": "github.copilot.chat.completions.toggle"
+  },
 ]
