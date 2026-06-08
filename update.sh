@@ -20,7 +20,7 @@ else
 fi
 
 while true; do
-    read -p "Deseja instalar as atualizações? (S/n) " sn
+    read -p "Deseja instalar as atualizações? (s/n) " sn
     case $sn in
         [Ss]* ) $HOME/setup/install.sh; break;;
         [Nn]* ) exit;;
