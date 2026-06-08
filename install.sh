@@ -145,13 +145,13 @@ if [ ! -d "$HOME/projects/" ]; then
 
     GITHUB_REPO="https://github.com/cinxavier"
     
-    echo -n "clonning exercicios-IP..."
-    git clone "$GITHUB_REPO"/exercicios-IP.git "$PROJECTS_FOLDER"/exercicios-IP
-    echo "done."
+    REPOS=('exercicios-IP' 'exercicios-IC' 'game-ip')
 
-    echo -n "clonning exercicios-IC..."
-    git clone "$GITHUB_REPO"/exercicios-IC.git "$PROJECTS_FOLDER"/exercicios-IC
-    echo "done."
+    for repo in "${REPOS[@]}"; do
+        echo -n "clonning $repo..."
+        git clone $GITHUB_REPO"/"$repo".git" $PROJECTS_FOLDER"/"$repo
+        echo "done."
+    done
 fi
 
 
