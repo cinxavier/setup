@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+killall firefox 2>/dev/null || true
+killall code 2>/dev/null || true
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 echo "starting config..."
