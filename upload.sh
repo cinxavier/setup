@@ -58,7 +58,7 @@ if [ -n "$PROFILE" ]; then
         cp "$PROFILE/$file" "$REPO_DIR/firefox/" 2>/dev/null || true
     done
 
-    find "$EXT_DIR" -name "*dictionary*.xpi" -exec cp {} "$REPO_DIR/firefox/" \; 2>/dev/null || true
+    find "$EXT_DIR" -name "*dictionaries*.xpi" -o -name "*langpack*.xpi" -exec cp {} "$REPO_DIR/firefox/" \; 2>/dev/null || true
 
     if [ -d "$EXT_DIR" ]; then
         rm -f $EXT_REPO/*.xpi

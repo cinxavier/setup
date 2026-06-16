@@ -139,29 +139,39 @@ fi
 echo "vscode done."
 
 # -------- PROJECTS --------
-if [ ! -d "$HOME/projects/" ]; then
-    PROJECTS_FOLDER="$HOME/projects"
+PROJECTS_FOLDER="$HOME/projects"
+
+if [ ! -d $PROJECTS_FOLDER ]; then
     mkdir -p "$PROJECTS_FOLDER"
+fi
+GITHUB_REPO="https://github.com/cinxavier"
 
-    GITHUB_REPO="https://github.com/cinxavier"
-    
-    REPOS=('exercicios-IP' 'exercicios-IC' 'game-ip' 'cinirriga')
-
-    for repo in "${REPOS[@]}"; do
+REPOS=('exercicios-IP' 'exercicios-IC' 'game-ip' 'cinirriga')
+for repo in "${REPOS[@]}"; do
+    if [ ! -d "$PROJECTS_FOLDER/$repo" ]; then
         echo -n "clonning $repo..."
         git clone $GITHUB_REPO"/"$repo".git" $PROJECTS_FOLDER"/"$repo
         echo "done."
-    done
-fi
+    fi
+done
 
 
 
 # garantir PATH
-if ! echo "$PATH" | grep -q "$HO$HOME/.config/Code/UserME/.local/bin"; then
+if ! echo "$PATH" | grep -q "$HOME/.config/Code/UserME/.local/bin"; then
     echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
     echo "PATH updated (reload the terminal)"
+    echo "install done!"
 else
-    echo "perhaps the machine needs to logout/login"
+    echo "perhaps the machine needs to reboot"
 fi
 
-echo "install done!"
+
+while true; do
+    read -p "Deseja reiniciar agora? (s/n) " sn
+    case $sn in
+        [Ss]* ) reboot;;
+        [Nn]* ) exit; echo "Lembre-se de reiniciar o PC";;
+        * ) echo "Apenas 's' ou 'n'";;
+    esac
+done
