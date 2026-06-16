@@ -35,5 +35,7 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "workbench.colorTheme": "Min Dark",
+  "workbench.iconTheme": "symbols",
+  "window.newWindowProfile": "Default",
 
 }
