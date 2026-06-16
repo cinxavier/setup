@@ -58,12 +58,8 @@ if [ -n "$PROFILE" ]; then
         cp "$PROFILE/$file" "$REPO_DIR/firefox/" 2>/dev/null || true
     done
 
-    find "$EXT_DIR" -name "*dictionaries*.xpi" -o -name "*langpack*.xpi" -exec cp {} "$REPO_DIR/firefox/" \; 2>/dev/null || true
-
-    if [ -d "$EXT_DIR" ]; then
-        rm -f $EXT_REPO/*.xpi
-        cp $EXT_DIR/* $EXT_REPO/
-    fi
+    rm -f $EXT_REPO/*.xpi
+    find "$EXT_DIR" -name "*dictionaries*.xpi" -o -name "*langpack*.xpi" -exec cp {} "$REPO_DIR/firefox/extensions" \; 2>/dev/null || true
 fi
 echo "------ Remote Profile ------ done."
 
