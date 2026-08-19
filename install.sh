@@ -140,24 +140,34 @@ fi
 
 echo "vscode done."
 
-# -------- PROJECTS --------
-PROJECTS_FOLDER="$HOME/projects"
+echo "Clonar os repositórios? (s/N)"
+while true; do
+    read -s -n 1 sn
+    if [[ -z $sn || $sn = "n" || $sn = "N" ]]; then
+        echo "repositórios NÂO FORAM clonados"
+        break
+    elif [[ $sn = "s" || $sn = "S" ]]; then
+        # -------- PROJECTS --------
+        PROJECTS_FOLDER="$HOME/projects"
 
-if [ ! -d $PROJECTS_FOLDER ]; then
-    mkdir -p "$PROJECTS_FOLDER"
-fi
-GITHUB_REPO="https://github.com/cinxavier"
+        if [ ! -d $PROJECTS_FOLDER ]; then
+            mkdir -p "$PROJECTS_FOLDER"
+        fi
+        GITHUB_REPO="https://github.com/cinxavier"
 
-REPOS=('exercicios-IP' 'exercicios-IC' 'game-ip' 'cinirriga')
-for repo in "${REPOS[@]}"; do
-    if [ ! -d "$PROJECTS_FOLDER/$repo" ]; then
-        echo -n "clonning $repo..."
-        git clone $GITHUB_REPO"/"$repo".git" $PROJECTS_FOLDER"/"$repo
-        echo "done."
+        REPOS=('exercicios-IP' 'exercicios-IC' 'game-ip' 'cinirriga')
+        for repo in "${REPOS[@]}"; do
+            if [ ! -d "$PROJECTS_FOLDER/$repo" ]; then
+                echo -n "clonning $repo..."
+                git clone $GITHUB_REPO"/"$repo".git" $PROJECTS_FOLDER"/"$repo
+                echo "done."
+            fi
+        done
+        break
+    else
+        echo "only 'sS' or 'nN"
     fi
 done
-
-
 
 # garantir PATH
 if ! echo "$PATH" | grep -q "$HOME/.config/Code/UserME/.local/bin"; then
@@ -165,15 +175,19 @@ if ! echo "$PATH" | grep -q "$HOME/.config/Code/UserME/.local/bin"; then
     echo "PATH updated (reload the terminal)"
     echo "install done!"
 else
-    echo "perhaps the machine needs to reboot"
+    echo "recomendo que reinicie o computador"
 fi
 
-
+echo "Deseja reiniciar agora? (s/n)"
 while true; do
-    read -p "Deseja reiniciar agora? (s/n) " sn
-    case $sn in
-        [Ss]* ) reboot;;
-        [Nn]* ) exit; echo "Lembre-se de reiniciar o PC";;
-        * ) echo "Apenas 's' ou 'n'";;
-    esac
+    read -s -n 1 sn
+    if [[ -z $sn || $sn = "s" || $sn = "S" ]]; then
+        systemctl reboot -i
+        break
+    elif [[ $sn = "n" || $sn = "N" ]]; then
+        echo "Lembre-se de reiniciar o PC"
+        break
+    else
+        echo "Apenas 'sS' ou 'nN'"
+    fi
 done
