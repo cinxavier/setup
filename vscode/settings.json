@@ -37,5 +37,6 @@
   "workbench.colorTheme": "Min Dark",
   "workbench.iconTheme": "symbols",
   "window.newWindowProfile": "Default",
+  "terminal.integrated.stickyScroll.enabled": false,
 
 }
