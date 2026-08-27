@@ -99,7 +99,7 @@ for i in ${PATHS[@]}
 do
     echo "------ Remote Profile ------ $i..."
     if [ -d $i ]; then
-        cd $i
+        cd $HOME/projects/$i
         git add .
         git commit -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
         git push origin main
