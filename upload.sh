@@ -97,8 +97,8 @@ echo "------ Remote Profile ------ done with $i."
 PATHS=("game-ip")
 for i in ${PATHS[@]} 
 do
-    echo "------ Remote Profile ------ $i..."
     if [ -d $i ]; then
+        echo "------ Remote Profile ------ $i..."
         cd $HOME/projects/$i
         git add .
         git commit -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
