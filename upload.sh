@@ -85,11 +85,16 @@ if [ -d "$VSCODE_DIR" ]; then
 fi
 
 # -------- GIT --------
-cd "$REPO_DIR"
 
 echo "------ Remote Profile ------ committing changes..."
 
-PATHS=("." "$HOME/projects/exercicios-IP" "$HOME/projects/exercicios-IC" "$HOME/projects/projeto-final-ic")
+cd "$REPO_DIR"
+git add .
+git commit -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
+git push origin main
+
+echo "------ Remote Profile ------ done with $i."
+PATHS=("game-ip")
 for i in ${PATHS[@]} 
 do
     echo "------ Remote Profile ------ $i..."
@@ -98,7 +103,6 @@ do
         git add .
         git commit -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
         git push origin main
-        echo "------ Remote Profile ------ done with $i."
     fi
 done
 

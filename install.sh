@@ -155,7 +155,7 @@ while true; do
         fi
         GITHUB_REPO="https://github.com/cinxavier"
 
-        REPOS=('exercicios-IP' 'exercicios-IC' 'game-ip' 'cinirriga')
+        REPOS=('game-ip')
         for repo in "${REPOS[@]}"; do
             if [ ! -d "$PROJECTS_FOLDER/$repo" ]; then
                 echo -n "clonning $repo..."
@@ -165,7 +165,7 @@ while true; do
         done
         break
     else
-        echo "only 'sS' or 'nN"
+        echo "apenas 'sS' ou 'nN'"
     fi
 done
 
@@ -178,7 +178,7 @@ else
     echo "recomendo que reinicie o computador"
 fi
 
-echo "Deseja reiniciar agora? (s/n)"
+echo "Deseja reiniciar agora? (S/n)"
 while true; do
     read -s -n 1 sn
     if [[ -z $sn || $sn = "s" || $sn = "S" ]]; then
