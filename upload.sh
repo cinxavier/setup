@@ -97,7 +97,7 @@ echo "------ Remote Profile ------ done with $i."
 PATHS=("game-ip")
 for i in ${PATHS[@]} 
 do
-    if [ -d $i ]; then
+    if [ -d $HOME/projects/$i ]; then
         echo "------ Remote Profile ------ $i..."
         cd $HOME/projects/$i
         git add .
