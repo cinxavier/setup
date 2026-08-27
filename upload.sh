@@ -101,7 +101,7 @@ do
         echo "------ Remote Profile ------ $i..."
         cd $HOME/projects/$i
         git add .
-        git commit -m "update: configs $(date)" || echo "------ Remote Profile ------ nothing to commit"
+        git commit -m "update: configs $(date)" --quiet || echo "------ Remote Profile ------ nothing to commit"
         git push origin main
     fi
 done
