@@ -1,6 +1,10 @@
 // Place your key bindings in this file to override the defaults
 [
     {
+        "key": "ctrl+alt+s ctrl+alt+i",
+        "command": "workbench.actions.accounts.signIn"
+    },
+    {
         "key": "ctrl+;",
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus",
@@ -173,9 +177,5 @@
     {
         "key": "alt+;",
         "command": "github.copilot.chat.completions.toggle"
-    },
-    {
-        "key": "ctrl+alt+s ctrl+alt+i",
-        "command": "workbench.actions.accounts.signIn"
     }
 ]
