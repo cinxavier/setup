@@ -13,17 +13,23 @@ else
   for folder in "$projects_dir"/*; do
     echo -n "updating $(basename "$folder")..."
     if [ -d "$folder"/.git/ ]; then
-      git -C "$folder" pull origin main --quiet
+      currentBranch=$(git -C "$folder" branch --show-current)
+      git -C "$folder" pull origin "$currentBranch" --quiet
     fi
     echo "done."
   done
 fi
 
+echo "Deseja instalar as atualizações? (S/n) "
 while true; do
-    read -p "Deseja instalar as atualizações? (s/n) " sn
-    case $sn in
-        [Ss]* ) $HOME/setup/install.sh; break;;
-        [Nn]* ) exit;;
-        * ) echo "Apenas 's' ou 'n'";;
-    esac
+    read -s -n 1 sn
+    if [[ -z $sn || $sn = "s" || $sn = "S" ]]; then
+        $HOME/setup/install.sh
+        break
+    elif [[ $sn = "n" || $sn = "N" ]]; then
+        exit
+        break
+    else
+        echo "Apenas 'sS' ou 'nN'"
+    fi
 done
