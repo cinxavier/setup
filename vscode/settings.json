@@ -34,7 +34,7 @@
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "workbench.colorTheme": "Monokai Dimmed",
+  "workbench.colorTheme": "Monokai",
   "window.newWindowProfile": "Default",
   "terminal.integrated.stickyScroll.enabled": false,
   "workbench.iconTheme": "symbols",
